@@ -88,5 +88,9 @@
       </div>
     </div>
   </template>
+
+  <template id="empty-comment-item">
+    <p class="text-center text-muted">Комментариев пока нет... :(</p>
+  </template>
 </body>
 </html>

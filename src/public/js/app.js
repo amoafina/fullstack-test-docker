@@ -51,15 +51,19 @@ function getComments() {
     },
     success: function (comments) {
       let html = '';
-      let template = document.querySelector('#comment-item');
+      let template = $('#comment-item');
 
-      for (let i in comments) {
-        html += interpolate(template.innerHTML, {
-          id: comments[i].id,
-          name: comments[i].name,
-          text: comments[i].text,
-          date: comments[i].date
-        });
+      if (comments.length > 0) {
+        for (let i in comments) {
+          html += interpolate(template.html(), {
+            id: comments[i].id,
+            name: comments[i].name,
+            text: comments[i].text,
+            date: comments[i].date
+          });
+        }
+      } else {
+        html = $('#empty-comment-item').html();
       }
 
       $('#comment-list').hide().html(html).fadeIn('slow');
